@@ -11,8 +11,7 @@ def main():
     st.title("ThunderX Product Recommender")
     html_temp = """
 
-    <div style="background-color:tomato;padding:10px">
-    <h2 style="color:white;text-align:center;">Streamlit Machine Learning App </h2>
+    <div style="background-color:tomato;padding:5px">
     </div>
     """
     st.markdown("""<style>body{background-color: White;}</style>""",unsafe_allow_html=True)
