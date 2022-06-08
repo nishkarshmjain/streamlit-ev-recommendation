@@ -1,6 +1,6 @@
-https://share.streamlit.io/nishkarshmjain/streamlit-ev-recommendation/main/main.py
+WebApp Link: https://share.streamlit.io/nishkarshmjain/streamlit-ev-recommendation/main/main.py
 
-Architecture <br />
+<h1 align="center">Architecture</h1>
 
 ![123](https://user-images.githubusercontent.com/41811713/172612999-235cebc5-8010-45cf-be94-16726c83a29a.png)
 
