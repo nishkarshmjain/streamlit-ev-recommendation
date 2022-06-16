@@ -66,7 +66,7 @@ def main():
 
     elif tabs == 'Contact Us':
         st.title("Our Team")
-        st.image('images/team.jpg', width=800)
+        st.image('images/team.JPG', width=800)
 
 
 
