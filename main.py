@@ -52,7 +52,7 @@ def main():
         if st.button("Predict"):
             a, b, c = product(gender, age, city)
             d = a[0]
-            st.success('Hi, ' + name + '\n The recommended product for you is {}'.format(prod[d]))
+            st.success('Hi ' + name + ','+ '\n The recommended product for you is {}.'.format(prod[d]) + 'Our nearest dealership will reach out to you for a test drive.')
             st.image('images/1.jpg', caption=prod[d])
             st.subheader('Customers like you from ' + city + ' bought')
             col1, col2, col3 = st.columns(3)
@@ -77,17 +77,6 @@ def main():
         colc2.image('images/team.JPG', width=1000, use_column_width=True)
         #st.image('images/team.jpg', width=800)
         #st.image('images/dbt.png', width=800)
-
-
-
-
-
-
-
-
-
-
-
         #st.text('Customers like you from ' + city + ' bought')
         #st.text(prod[b[0]])
         #st.image('images/2.jpg', caption=prod[b[0]])
