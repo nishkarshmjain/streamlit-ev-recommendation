@@ -1,40 +1,94 @@
 import pickle
 # from flasgger import Swagger
 import streamlit as st
+from st_on_hover_tabs import on_hover_tabs
 
 pickle_in = open("rfmodel_pkl", "rb")
 rf = pickle.load(pickle_in)
 
+
 def main():
+    st.set_page_config(layout="wide")
+
+    st.markdown('<style>' + open('./style.css').read() + '</style>', unsafe_allow_html=True)
+    st.sidebar.image('images/logo_l.png', use_column_width=True)
+    
+    with st.sidebar:
+        tabs = on_hover_tabs(tabName=['About Us', 'Product Recomendation', 'Contact Us'],
+                             iconName=['dashboard', 'money', 'economy'], default_choice=0)
+
+    if tabs == 'About Us':
+        st.title("About Us")
+        st.image('images/logo_l.png', width=700)
+        st.subheader('ThunderX is an electric vehicle manufacturing company that manufactures premium and economical bikes for consumers and businesses.')
+
+    elif tabs == 'Product Recomendation':
+        # -----------------------------Recommendation Page--------------------------------
+
+        st.image('images/logo.png', width=150)
+        colf1, colf2, colf21 = st.columns(3)
+        with colf1:
+            name = st.text_input("Name", "Type Here")
+        with colf2:
+            email = st.text_input("E-mail", "Type Here")
+        with colf21:
+            email = st.text_input("Contact Number", "Type Here")
+        colf3, colf4, colf5 = st.columns(3)
+        with colf3:
+            gender = st.selectbox("Select Gender: ", ('Male', 'Female'))
+        with colf4:
+            city = st.selectbox("Select City",
+                                ["Banglore", "Chennai", "Hyderabad", "Mumbai", "Pune"])
+        with colf5:
+            age = st.number_input("Age", step=1)
+        prod = {'RS955': 'Torque Plus', 'AU116': 'Alpha Apache TR160', 'ML1125': 'Lithnoid S20', 'AP134': 'Sigma Pro',
+                'RR99': 'Neon 0A2', 'YT978': 'Torque Plus', 'SH1154': 'Sugoi A1'}
+        if st.button("Predict"):
+            a, b, c = product(gender, age, city)
+            d = a[0]
+            st.success('Hi, ' + name + '\n The recommended product for you is {}'.format(prod[d]))
+            st.image('images/1.jpg', caption=prod[d])
+            st.subheader('Customers like you from ' + city + ' bought')
+            col1, col2, col3 = st.columns(3)
+
+            with col1:
+                st.header(prod[b[0]])
+                st.image("images/2.jpg")
+
+            with col2:
+                st.header(prod[b[1]])
+                st.image("images/3.jpg")
+
+            with col3:
+                st.header(prod[b[2]])
+                st.image("images/4.jpg")
 
 
-    st.title("ThunderX Product Recommender")
-    html_temp = """
+    elif tabs == 'Contact Us':
+        st.title("Our Team")
+        st.image('images/team.jpg', width=800)
 
-    <div style="background-color:tomato;padding:5px">
-    </div>
-    """
-    st.markdown("""<style>body{background-color: White;}</style>""",unsafe_allow_html=True)
-    st.markdown(html_temp, unsafe_allow_html=True)
-    name = st.text_input("Name", "Type Here")
-    email = st.text_input("E-mail", "Type Here")
-    gender = st.radio("Select Gender: ", ('Male', 'Female'))
-    city = st.text_input("City", "Type Here")
-    age = st.number_input("Age", step=1)
-    prod = {'RS955': 'Torque Plus', 'AU116': 'Alpha Apache TR160', 'ML1125': 'Lithnoid S20', 'AP134': 'Sigma Pro',
-            'RR99': 'Neon 0A2', 'YT978': 'Torque Plus Pro', 'SH1154': 'Sugoi A1'}
-    if st.button("Predict"):
-        a, b, c = product(gender, age, city)
-        d = a[0]
-        st.success('Hi, ' + name + '\n The recommended product for you is {}'.format(prod[d]))
-        st.text('Customers like you from ' + city + ' bought')
-        st.text(prod[b[0]])
-        st.text(prod[b[1]])
-        st.text(prod[b[2]])
 
-    if st.button("About"):
-        st.text("Lets LEarn")
-        st.text("Built with Streamlit")
+
+
+
+
+
+
+
+
+
+        #st.text('Customers like you from ' + city + ' bought')
+        #st.text(prod[b[0]])
+        #st.image('images/2.jpg', caption=prod[b[0]])
+        #st.text(prod[b[1]])
+        #st.image('images/3.jpg', caption=prod[b[1]])
+        #st.text(prod[b[2]])
+        #st.image('images/4.jpg', caption=prod[b[2]])
+    #if st.button("About"):
+        #st.text("Lets LEarn")
+        #st.text("Built with Streamlit")
+
 
 
 def product(gender, age, city):
