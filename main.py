@@ -74,7 +74,7 @@ def main():
         st.title("Our Team")
 
         colc1, colc2, colc3 = st.columns([0.2, 5, 0.2])
-        colc2.image('images/team.jpg', width=1000, use_column_width=True)
+        colc2.image('images/team.JPG', width=1000, use_column_width=True)
         #st.image('images/team.jpg', width=800)
         #st.image('images/dbt.png', width=800)
 
