@@ -117,7 +117,7 @@ def product(gender, age, city):
 
 
 def convert_input(gender, age, city):
-    le_city_mapping = {'Ahemdabad': 0, 'Banglore': 1, 'Chennai': 2, 'Mumbai': 3, 'Pune': 4}
+    le_city_mapping = {'Ahemdabad': 0, 'Bangalore': 1, 'Chennai': 2, 'Mumbai': 3, 'Pune': 4}
     le_gender_mapping = {'Female': 0, 'Male': 1,'F': 0, 'M': 1}
     le_city = le_city_mapping[city]
     le_gender = le_gender_mapping[gender]
