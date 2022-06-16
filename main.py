@@ -34,17 +34,17 @@ def main():
         st.image('images/logo1.png', width=150)
         colf1, colf2, colf21 = st.columns(3)
         with colf1:
-            name = st.text_input("Name", "Type Here")
+            name = st.text_input("Name")
         with colf2:
-            email = st.text_input("E-mail", "Type Here")
+            email = st.text_input("E-mail")
         with colf21:
-            email = st.text_input("Contact Number", "Type Here")
+            email = st.text_input("Contact Number")
         colf3, colf4, colf5 = st.columns(3)
         with colf3:
             gender = st.selectbox("Select Gender: ", ('Male', 'Female'))
         with colf4:
             city = st.selectbox("Select City",
-                                ["Banglore", "Chennai", "Hyderabad", "Mumbai", "Pune"])
+                                ["Bangalore", "Chennai", "Hyderabad", "Mumbai", "Pune"])
         with colf5:
             age = st.number_input("Age", step=1)
         prod = {'RS955': 'Torque Plus', 'AU116': 'Alpha Apache TR160', 'ML1125': 'Lithnoid S20', 'AP134': 'Sigma Pro',
