@@ -19,13 +19,19 @@ def main():
 
     if tabs == 'About Us':
         st.title("About Us")
-        st.image('images/logo_l.png', width=700)
+        cola1, cola2, cola3 = st.columns([0.2, 5, 0.2])
+        cola2.image('images/thunder.JPG', width=1000, use_column_width=True)
+        #st.image('images/thunder.JPG', width=1000)
         st.subheader('ThunderX is an electric vehicle manufacturing company that manufactures premium and economical bikes for consumers and businesses.')
+        st.title("Our Technologies")
+        cola11, cola21, cola31 = st.columns([0.2, 5, 0.2])
+        cola21.image('images/arch.JPG', width=1000, use_column_width=True)
+
 
     elif tabs == 'Product Recomendation':
         # -----------------------------Recommendation Page--------------------------------
 
-        st.image('images/logo.png', width=150)
+        st.image('images/logo1.png', width=150)
         colf1, colf2, colf21 = st.columns(3)
         with colf1:
             name = st.text_input("Name", "Type Here")
@@ -66,7 +72,11 @@ def main():
 
     elif tabs == 'Contact Us':
         st.title("Our Team")
-        st.image('images/team.JPG', width=800)
+
+        colc1, colc2, colc3 = st.columns([0.2, 5, 0.2])
+        colc2.image('images/team.jpg', width=1000, use_column_width=True)
+        #st.image('images/team.jpg', width=800)
+        #st.image('images/dbt.png', width=800)
 
 
 
